@@ -1,6 +1,12 @@
 # Generic-API-based-Web-programming
 
-# Generic notification system to send bulk text email
+Generic notification system to send bulk text email
+
+# Installation
+1. npm i
+2. cd frontend
+3. npm i
+4. npm run dev
 
 # Category: 
 Generic API based Web programming
