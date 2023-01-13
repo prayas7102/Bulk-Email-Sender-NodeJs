@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const chatModel = mongoose.Schema(
+const emailModel = mongoose.Schema(
     {
         senderName: { type: String },
         recieverName: { type: String },
@@ -10,5 +10,5 @@ const chatModel = mongoose.Schema(
     }
 );
 
-const Chat = mongoose.model("Chat", chatModel);
+const Chat = mongoose.model("Chat", emailModel);
 module.exports = Chat;
