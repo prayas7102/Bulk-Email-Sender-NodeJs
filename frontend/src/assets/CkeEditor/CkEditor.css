@@ -1,8 +1,0 @@
-:root {
-    --ck-highlight-pen-green: hsl(112, 100%, 27%);
-}
-
-.ck-content .pen-green {
-    color: var(--ck-highlight-pen-green);
-    background-color: transparent;
-}

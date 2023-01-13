@@ -2,17 +2,20 @@ import React from "react";
 import { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import axios from "axios";
+import Button from 'react-bootstrap/Button';
 import "./CkEditor.css";
 
 const CkeEditor = () => {
 
+  const [body, setbody] = useState("");
+
   const submitHandler = async () => {
+    console.log(body)
     const { data } = await axios.post(
-      "/api/user/send-email", { body },
+      "http://localhost:5000/api/user/send-email", { body },
     );
   }
-
-  const [body, setbody] = useState();
 
   return (
     <div className="ck-content pen-green">
@@ -22,13 +25,13 @@ const CkeEditor = () => {
         data="<p style='color:blue;'>Hello from CKEditor 5!</p>"
         onChange={(event, editor) => {
           const data = editor.getData();
-          console.log({ event, editor, data });
+          setbody(data.replace( /(<([^>]+)>)/ig, ''))
         }}
         onBlur={(event, editor) => {
-          console.log("Blur.", editor);
+          console.log("Blur.")
         }}
         onFocus={(event, editor) => {
-          console.log("Focus.", editor);
+          console.log("Focus.")
         }}
         onReady={(editor) => {
           editor.editing.view.change((writer) => {
@@ -45,6 +48,11 @@ const CkeEditor = () => {
           });
         }}
       />
+      <div>
+        <Button variant="warning" type="submit" onClick={submitHandler}>
+          Danger
+        </Button>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CkeEditor from "./assets/CkeEditor/CkEditor";
+import SetTime from "./assets/TimerSet/SetTime";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <CkeEditor />
+      <SetTime/>
     </div>
   );
 }
