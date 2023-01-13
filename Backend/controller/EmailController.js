@@ -1,6 +1,5 @@
 const emailModel = require('../models/emailModel');
 const nodemailer = require('nodemailer');
-const Mailgen = require('mailgen');
 
 const SendEmail = async (req, res) => {
 
