@@ -1,9 +1,19 @@
 import React from "react";
+import { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./CkEditor.css";
 
 const CkeEditor = () => {
+
+  const submitHandler = async () => {
+    const { data } = await axios.post(
+      "/api/user/send-email", { body },
+    );
+  }
+
+  const [body, setbody] = useState();
+
   return (
     <div className="ck-content pen-green">
       <h2>Generic Notification System</h2>
