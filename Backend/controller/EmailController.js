@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 
 const SendEmail = async (req, res) => {
 
+    console.log(req.body)
     const { EMAIL, PASSWORD } = process.env;
 
     /** testing account */
@@ -29,7 +30,7 @@ const SendEmail = async (req, res) => {
 
 
     transporter.sendMail(message).then((info) => {
-        return res.status(201)
+        return res.status(200)
             .json({
                 msg: "you should receive an email",
                 info: info.messageId,

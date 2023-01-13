@@ -16,7 +16,8 @@ const CkeEditor = () => {
   const submitHandler = async () => {
     console.log(body)
     const { data } = await axios.post(
-      "http://localhost:5000/api/user/send-email", { body },
+      "http://localhost:5000/api/user/send-email",
+      { body },
     );
   }
 
@@ -29,7 +30,7 @@ const CkeEditor = () => {
           data="<p style='color:blue;'>Hello from CKEditor 5!</p>"
           onChange={(event, editor) => {
             const data = editor.getData();
-            setbody(data.replace(/(<([^>]+)>)/ig, ''))
+            setbody(data)
           }}
           onBlur={(event, editor) => {
             console.log("Blur.")
