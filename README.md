@@ -3,11 +3,12 @@
 Generic notification system to send bulk text email
 
 # Installation
-1. git clone 
+1. git clone https://github.com/prayas7102/Bulk-Email-Sender-NodeJs.git
 2. npm i
 3. cd frontend
 4. npm i
-5. npm run dev
+5. cd ..
+6. npm run dev
 
 # Category: 
 Generic API based Web programming
