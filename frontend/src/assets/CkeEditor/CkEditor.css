@@ -1,0 +1,9 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.home div{
+    margin-top: 20px;
+}

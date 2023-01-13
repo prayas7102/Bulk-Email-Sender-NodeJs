@@ -4,6 +4,7 @@ const emailModel = mongoose.Schema(
         senderName: { type: String },
         recieverName: { type: String },
         body: { type: String },
+        time: { type: String },
     },
     {
         timestamps: true
