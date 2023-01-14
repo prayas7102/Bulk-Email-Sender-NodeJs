@@ -3,17 +3,19 @@ const nodemailer = require('nodemailer');
 
 const SendEmail = async (req, res) => {
 
-    console.log(req.body)
-    const msg=req.body.msg;
+    const msg = req.body.msg;
+    const time = String(req.body.time);
+
+    
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: process.env.SMPT_HOST,
         port: process.env.SMPT_PORT,
-        secure: true, 
+        secure: true,
         auth: {
-            user: process.env.EMAIL, 
-            pass: process.env.PASSWORD, 
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD,
         },
         service: process.env.SMPT_SERVICE
     });
@@ -26,17 +28,23 @@ const SendEmail = async (req, res) => {
         html: msg
     }
 
-    transporter.sendMail(message).then((info) => {
-        return res.status(200)
-            .json({
-                msg: "you should receive an email",
-                info: info.messageId,
-                preview: nodemailer.getTestMessageUrl(info)
-            })
-    }).catch(error => {
-        console.log(error)
-        return res.status(500).json({ error })
-    })
+    transporter.sendMail(message)
+        .then((info) => {
+            return res.status(200)
+                .json({
+                    msg: msg,
+                    info: info.messageId,
+                    preview: nodemailer.getTestMessageUrl(info)
+                })
+        })
+        .catch(error => {
+            console.log(error)
+            return res.status(500).json({ error })
+        })
 }
 
-module.exports = { SendEmail };
+const GetEmail = async (req, res) => {
+
+}
+
+module.exports = { SendEmail, GetEmail };

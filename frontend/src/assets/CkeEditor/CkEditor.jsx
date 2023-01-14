@@ -78,7 +78,8 @@ const CkeEditor = () => {
         Submit
       </button>
 
-      {toast && <Toast messg={toast} />}
+      <div className="Toast">{toast && <Toast messg={toast} />}</div>
+
     </div>
   );
 };
