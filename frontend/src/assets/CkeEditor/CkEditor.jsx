@@ -4,19 +4,36 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 import DateTimePicker from 'react-datetime-picker';
-import Button from 'react-bootstrap/Button';
+import Toast from "../Toast";
 import "./CkEditor.css";
 
 const CkeEditor = () => {
 
   const [body, setbody] = useState("");
-  const [value, onChange] = useState(new Date());
+  const [toast, setToast] = useState(null);
+  const [value, onChange] = useState(null);
+  // console.log(String(value));
 
   const submitHandler = async () => {
-    const { data } = await axios.post(
-      "http://localhost:5000/api/user/send-email",
-      { msg: body },
-    );
+    try {
+      if (body && value) {
+        setToast(null);
+        const { data } = await axios.post(
+          "http://localhost:5000/api/user/send-email",
+          { msg: body, time: value },
+        );
+        setbody("");
+        onChange(null);
+      }
+      else {
+        console.log('enter both date and messgae');
+        setToast('enter both date and messgae');
+      }
+    }
+    catch (err) {
+      console.log(err);
+      setToast(err);
+    }
   }
 
   return (
@@ -25,7 +42,7 @@ const CkeEditor = () => {
         <h2>Generic Notification System</h2>
         <CKEditor
           editor={ClassicEditor}
-          data="<p style='color:blue;'>Hello from CKEditor 5!</p>"
+          data="<p></p>"
           onChange={(event, editor) => {
             const data = editor.getData();
             setbody(data)
@@ -53,15 +70,15 @@ const CkeEditor = () => {
         />
       </div>
 
-      <div style={{ color: "black" }}>
+      <div className="react-datepicker">
         <DateTimePicker onChange={onChange} value={value} />
       </div>
 
-      <div>
-        <Button variant="warning" type="submit" onClick={submitHandler}>
-          Submit
-        </Button>
-      </div>
+      <button className="submitButton" variant="warning" type="submit" onClick={submitHandler}>
+        Submit
+      </button>
+
+      {toast && <Toast messg={toast} />}
     </div>
   );
 };

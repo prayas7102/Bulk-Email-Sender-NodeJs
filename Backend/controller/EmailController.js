@@ -3,17 +3,17 @@ const nodemailer = require('nodemailer');
 
 const SendEmail = async (req, res) => {
 
-    console.log(req.body.msg)
+    console.log(req.body)
     const msg=req.body.msg;
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: process.env.SMPT_HOST,
         port: process.env.SMPT_PORT,
-        secure: true, // true for 465, false for other ports
+        secure: true, 
         auth: {
-            user: process.env.EMAIL, // generated ethereal user
-            pass: process.env.PASSWORD, // generated ethereal password
+            user: process.env.EMAIL, 
+            pass: process.env.PASSWORD, 
         },
         service: process.env.SMPT_SERVICE
     });
