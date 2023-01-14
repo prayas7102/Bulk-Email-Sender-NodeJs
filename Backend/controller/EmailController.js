@@ -8,7 +8,6 @@ const SendEmail = async (req, res) => {
     const time = String(req.body.time);
 
     const job = nodeSchedule.scheduleJob('* * * * *', function () {
-        
     })
 
     // create reusable transporter object using the default SMTP transport
