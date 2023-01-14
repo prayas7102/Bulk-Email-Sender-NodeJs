@@ -10,6 +10,20 @@ Generic notification system to send bulk text email
 5. cd ..
 6. npm run dev
 
+# Working Images
+<img width="701" alt="image" src="https://user-images.githubusercontent.com/71717433/212472209-de1b251e-7bf7-45ce-a5a8-e005758b4aee.png">
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/71717433/212472223-9206f14b-a096-4245-8af9-500af3ee0ad7.png">
+<img width="536" alt="image" src="https://user-images.githubusercontent.com/71717433/212472405-74665887-f49c-4510-8018-887152e1fe68.png">
+
+
+# .env requirements
+EMAIL, PASSWORD, MONGO_URI
+NODE_ENV="DEVELOPEMENT"
+PORT="5000"
+SMPT_HOST="smtp.gmail.com"
+SMPT_PORT=465
+SMPT_SERVICE="gmail"
+
 # Category: 
 Generic API based Web programming
 
@@ -25,3 +39,4 @@ Per Day emails: 500
 3. Bulk email alerts can be scheduled to send on a specific time.
 4. Bulk emails should be prioritized and sent based on priority.
 Example: system outage notification to all employees.
+
