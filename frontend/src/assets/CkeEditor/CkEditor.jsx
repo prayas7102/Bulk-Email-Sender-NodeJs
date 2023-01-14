@@ -11,13 +11,11 @@ const CkeEditor = () => {
 
   const [body, setbody] = useState("");
   const [value, onChange] = useState(new Date());
-  console.log(value)
 
   const submitHandler = async () => {
-    console.log(body)
     const { data } = await axios.post(
       "http://localhost:5000/api/user/send-email",
-      { body },
+      { msg: body },
     );
   }
 
