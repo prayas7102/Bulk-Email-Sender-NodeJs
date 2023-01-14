@@ -1,12 +1,15 @@
 const emailModel = require('../models/emailModel');
 const nodemailer = require('nodemailer');
+const nodeSchedule = require('node-schedule');
 
 const SendEmail = async (req, res) => {
 
     const msg = req.body.msg;
     const time = String(req.body.time);
 
-    
+    const job = nodeSchedule.scheduleJob('* * * * *', function () {
+        
+    })
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -44,7 +47,19 @@ const SendEmail = async (req, res) => {
 }
 
 const GetEmail = async (req, res) => {
-
+    const emailList = await emailModel.find({});
+    if (emailList.length) {
+        return res.status(200).json({
+            success: false,
+            message: emailList
+        });
+    }
+    else {
+        return res.status(400).json({
+            success: false,
+            message: []
+        });
+    }
 }
 
 module.exports = { SendEmail, GetEmail };
