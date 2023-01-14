@@ -14,47 +14,66 @@ const StringFilter = (str) => {
 const SendEmail = async (req, res) => {
 
     const msg = req.body.msg;
-    const timeArr = StringFilter(Object(req.body.time));
+    const EMAIL=process.env.EMAIL;
+    const [day, month, year, hour, minute] = StringFilter(Object(req.body.time));
+    const recieverArr = ["prayas.prithvirajpratap7@gmail.com", "prayas7102@gmail.com"];
+    // console.log(timeArr)
+    //     *    *    *    *    *    *
+    //     ┬    ┬    ┬    ┬    ┬    ┬
+    //     │    │    │    │    │    │
+    //     │    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+    //     │    │    │    │    └───── month (1 - 12)
+    //     │    │    │    └────────── day of month (1 - 31)
+    //     │    │    └─────────────── hour (0 - 23)
+    //     │    └──────────────────── minute (0 - 59)
+    //     └───────────────────────── second (0 - 59, OPTIONAL)
 
-    console.log(timeArr);
+    const date = new Date(year, month, day, hour, minute, 0);
 
-    const job = nodeSchedule.scheduleJob(`${timeArr[2]} ${timeArr[1]} ${timeArr[0]} ${timeArr[3]} ${timeArr[4]}`,
-        function () {
+    const job = nodeSchedule.scheduleJob(date, function () {
+        console.log(timeArr);
+        let transporter = nodemailer.createTransport({
+            host: process.env.SMPT_HOST,
+            port: process.env.SMPT_PORT,
+            secure: true,
+            auth: {
+                user: EMAIL,
+                pass: process.env.PASSWORD,
+            },
+            service: process.env.SMPT_SERVICE
+        });
 
-            let transporter = nodemailer.createTransport({
-                host: process.env.SMPT_HOST,
-                port: process.env.SMPT_PORT,
-                secure: true,
-                auth: {
-                    user: process.env.EMAIL,
-                    pass: process.env.PASSWORD,
-                },
-                service: process.env.SMPT_SERVICE
+        let message = {
+            from: EMAIL, // sender address
+            to: recieverArr, // list of receivers
+            subject: "From bulk email sender", // Subject line
+            text: msg, // plain text body
+            html: msg
+        }
+
+        transporter.sendMail(message)
+            .then(async(info) => {
+
+                for(let recv of recieverArr){
+                    const email = await emailModel.create({ EMAIL, recv, msg, date});
+                    await email.save();
+                }
+                
+                return res.status(200)
+                    .json({
+                        msg: msg,
+                        info: info.messageId,
+                        preview: nodemailer.getTestMessageUrl(info)
+                    });
+            })
+            .catch(error => {
+                console.log(error)
+                return res.status(500).json({ error })
             });
 
-            let message = {
-                from: process.env.EMAIL, // sender address
-                to: ["prayas.prithvirajpratap7@gmail.com", "prayas7102@gmail.com"], // list of receivers
-                subject: "From bulk email sender", // Subject line
-                text: msg, // plain text body
-                html: msg
-            }
-
-            transporter.sendMail(message)
-                .then((info) => {
-                    return res.status(200)
-                        .json({
-                            msg: msg,
-                            info: info.messageId,
-                            preview: nodemailer.getTestMessageUrl(info)
-                        });
-                })
-                .catch(error => {
-                    console.log(error)
-                    return res.status(500).json({ error })
-                });
-                
-        })
+    })
+    job.schedule();
+    jo
 }
 
 const GetEmail = async (req, res) => {
