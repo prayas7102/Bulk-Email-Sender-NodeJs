@@ -1,0 +1,10 @@
+.EmailLists{
+    margin: 0 auto;
+}
+
+.SubEmailLists{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
