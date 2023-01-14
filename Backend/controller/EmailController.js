@@ -8,6 +8,7 @@ const SendEmail = async (req, res) => {
     const time = String(req.body.time);
 
     const job = nodeSchedule.scheduleJob('* * * * *', function () {
+        
     })
 
     // create reusable transporter object using the default SMTP transport
@@ -50,7 +51,7 @@ const GetEmail = async (req, res) => {
     if (emailList.length) {
         return res.status(200).json({
             success: false,
-            message: emailList
+            "emailList": emailList
         });
     }
     else {
