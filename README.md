@@ -13,7 +13,8 @@ Generic notification system to send bulk text email
 # Working Images
 <img width="701" alt="image" src="https://user-images.githubusercontent.com/71717433/212472209-de1b251e-7bf7-45ce-a5a8-e005758b4aee.png">
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/71717433/212472223-9206f14b-a096-4245-8af9-500af3ee0ad7.png">
-![WhatsApp Image 2023-01-14 at 6 19 26 PM](https://user-images.githubusercontent.com/71717433/212472355-f91a701a-1169-4198-a39f-8982c4a78cba.jpeg)
+<img width="536" alt="image" src="https://user-images.githubusercontent.com/71717433/212472405-74665887-f49c-4510-8018-887152e1fe68.png">
+
 
 # .env requirements
 EMAIL, PASSWORD, MONGO_URI
