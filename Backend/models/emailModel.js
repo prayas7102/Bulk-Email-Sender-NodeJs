@@ -11,5 +11,5 @@ const emailModel = mongoose.Schema(
     }
 );
 
-const Chat = mongoose.model("Chat", emailModel);
-module.exports = Chat;
+const Email = mongoose.model("Email", emailModel);
+module.exports = Email;

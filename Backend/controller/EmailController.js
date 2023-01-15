@@ -16,7 +16,7 @@ const SendEmail = async (req, res) => {
     const { msg, time } = req.body;
     const EMAIL = process.env.EMAIL;
     const [day, month, year, hour, minute] = StringFilter(Object(time));
-    const recieverArr = ["prayas.prithvirajpratap7@gmail.com", "prayas7102@gmail.com"];
+    const recieverArr = ["prayas.prithvirajpratap7@gmail.com", "prayas7102@gmail.com", "prayas.stingkumar777@gmail.com", "sonu.patna0808@gmail.com", "samarmahato2505@gmail.com", "swajeetg768@gmail.com", "kumarmithu2021@gmail.com"];
 
     //     *    *    *    *    *    *
     //     ┬    ┬    ┬    ┬    ┬    ┬
