@@ -1,10 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 import "./EmailLists.css";
 
 const EmailLists = () => {
-    const emailList = [];
+    let emailList = [];
     async function getList() {
         emailList = await axios.get("http://localhost:5000/api/user/get-email");
+        console.log(emailList)
     }
     getList();
     return (

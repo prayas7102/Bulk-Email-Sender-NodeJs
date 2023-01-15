@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CkeEditor from "./assets/CkeEditor/CkEditor";
+import EmailLists from "./assets/EmailLists/EmailLists";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <CkeEditor />
+      <EmailLists />
     </div>
   );
 }

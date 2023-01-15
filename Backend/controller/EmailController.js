@@ -55,8 +55,9 @@ const SendEmail = async (req, res) => {
             .then(async (info) => {
 
                 for (let recv of recieverArr) {
-                    const email = await emailModel.create({ EMAIL, recv, msg, time });
+                    const email = await emailModel.create({ senderName: EMAIL, recieverName: recv, body: msg, time });
                     await email.save();
+                    // console.log(email)
                 }
 
                 return res.status(200)
