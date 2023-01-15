@@ -73,7 +73,6 @@ const SendEmail = async (req, res) => {
 
     })
     job.schedule();
-    jo
 }
 
 const GetEmail = async (req, res) => {

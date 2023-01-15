@@ -22,7 +22,6 @@ const CkeEditor = () => {
           "http://localhost:5000/api/user/send-email",
           { msg: body, time: value },
         );
-        setbody("");
         onChange(null);
       }
       else {
