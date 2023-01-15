@@ -4,22 +4,18 @@ const nodeCron = require("node-cron");
 
 const StringFilter = (str) => {
     const date = new Date(str).toLocaleDateString();
-    const time = new Date(str).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+    const time = new Date(str).toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' });
     let strArr = date.split("/");
     strArr = strArr.concat(time.split(":"));
     strArr[strArr.length - 1] = strArr[strArr.length - 1].replace(/\D/g, '');
-    let NumArr = [];
-    for (var i = 0; i < strArr.length; i++) {
-        NumArr.push(parseInt(strArr[i]));
-    }
     return strArr;
 }
 
 const SendEmail = async (req, res) => {
 
-    const msg = req.body.msg;
+    const { msg, time } = req.body;
     const EMAIL = process.env.EMAIL;
-    const [day, month, year, hour, minute] = StringFilter(Object(req.body.time));
+    const [day, month, year, hour, minute] = StringFilter(Object(time));
     const recieverArr = ["prayas.prithvirajpratap7@gmail.com", "prayas7102@gmail.com"];
 
     //     *    *    *    *    *    *
@@ -32,9 +28,8 @@ const SendEmail = async (req, res) => {
     //     │    └──────────────────── minute (0 - 59)
     //     └───────────────────────── second (0 - 59, OPTIONAL)
 
-    console.log(minute, hour, day, month)
     const dateString = String(`${minute} ${hour} ${day} ${month} *`)
-
+    console.log(dateString)
     const job = nodeCron.schedule(dateString, function jobYouNeedToExecute() {
 
         let transporter = nodemailer.createTransport({
@@ -60,7 +55,7 @@ const SendEmail = async (req, res) => {
             .then(async (info) => {
 
                 for (let recv of recieverArr) {
-                    const email = await emailModel.create({ EMAIL, recv, msg, date });
+                    const email = await emailModel.create({ EMAIL, recv, msg, time });
                     await email.save();
                 }
 
