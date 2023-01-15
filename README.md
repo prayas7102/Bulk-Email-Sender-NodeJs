@@ -11,9 +11,11 @@ Generic notification system to send bulk text email
 6. npm run dev
 
 # Working Images
-<img width="701" alt="image" src="https://user-images.githubusercontent.com/71717433/212472209-de1b251e-7bf7-45ce-a5a8-e005758b4aee.png">
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/71717433/212472223-9206f14b-a096-4245-8af9-500af3ee0ad7.png">
-<img width="536" alt="image" src="https://user-images.githubusercontent.com/71717433/212472405-74665887-f49c-4510-8018-887152e1fe68.png">
+<img width="595" alt="image" src="https://user-images.githubusercontent.com/71717433/212556121-cb28360d-e362-4d6f-90f7-f5cbb751f6f5.png">
+<img width="595" alt="image" src="https://user-images.githubusercontent.com/71717433/212556146-f11c2ff6-6219-48b7-aaf9-433c5067b741.png">
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/71717433/212556176-434cd8a7-7af3-4dc3-9d23-9def0c5cb0ff.png">
+<img width="592" alt="image" src="https://user-images.githubusercontent.com/71717433/212556215-35348876-eb2e-4c8d-944f-0321b6c4013e.png">
+<img width="579" alt="image" src="https://user-images.githubusercontent.com/71717433/212556247-9d73a437-6447-4eb5-bf17-f15a73ba4c48.png">
 
 
 # .env requirements
