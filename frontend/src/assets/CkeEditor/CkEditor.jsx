@@ -79,6 +79,8 @@ const CkeEditor = () => {
 
       <div className="Toast">{toast && <Toast messg={toast} />}</div>
 
+      <strong className="imp">REFRESH PAGE AFTER SENDING MAIL TO SEE THIER DETAILS</strong>
+
     </div>
   );
 };
