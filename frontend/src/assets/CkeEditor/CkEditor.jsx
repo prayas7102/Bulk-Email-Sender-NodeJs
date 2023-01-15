@@ -70,7 +70,7 @@ const CkeEditor = () => {
       </div>
 
       <div className="react-datepicker">
-        <DateTimePicker onChange={onChange} value={value} />
+        <DateTimePicker onChange={onChange} value={value} locale="sv-sv"/>
       </div>
 
       <button className="submitButton" variant="warning" type="submit" onClick={submitHandler}>
