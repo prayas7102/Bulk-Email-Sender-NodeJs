@@ -33,6 +33,10 @@ Generic API based Web programming
 1. Real email is not needed, if could be simulated on Web page just for demo purpose.
 2. It should be small size emails <1 MB, no attachment.
 
+
+https://user-images.githubusercontent.com/71717433/212556468-4229f231-785d-4ea7-b1fe-77c54277bbc0.mp4
+
+
 Per Day emails: 500 
 
 # Use cases: 
