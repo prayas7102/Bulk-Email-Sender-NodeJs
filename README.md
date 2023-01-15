@@ -11,6 +11,9 @@ Generic notification system to send bulk text email
 6. npm run dev
 
 # Working Images
+
+https://user-images.githubusercontent.com/71717433/212556468-4229f231-785d-4ea7-b1fe-77c54277bbc0.mp4
+
 <img width="595" alt="image" src="https://user-images.githubusercontent.com/71717433/212556121-cb28360d-e362-4d6f-90f7-f5cbb751f6f5.png">
 <img width="595" alt="image" src="https://user-images.githubusercontent.com/71717433/212556146-f11c2ff6-6219-48b7-aaf9-433c5067b741.png">
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/71717433/212556176-434cd8a7-7af3-4dc3-9d23-9def0c5cb0ff.png">
@@ -32,10 +35,6 @@ Generic API based Web programming
 # Assumptions:
 1. Real email is not needed, if could be simulated on Web page just for demo purpose.
 2. It should be small size emails <1 MB, no attachment.
-
-
-https://user-images.githubusercontent.com/71717433/212556468-4229f231-785d-4ea7-b1fe-77c54277bbc0.mp4
-
 
 Per Day emails: 500 
 
