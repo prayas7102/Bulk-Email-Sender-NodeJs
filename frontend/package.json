@@ -12,6 +12,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^35.4.0",
     "@ckeditor/ckeditor5-react": "^5.0.5",
+    "axios": "^1.2.2",
     "cd": "^0.3.3",
     "generic-api-based-web-programming": "file:..",
     "npm": "^9.3.0",
