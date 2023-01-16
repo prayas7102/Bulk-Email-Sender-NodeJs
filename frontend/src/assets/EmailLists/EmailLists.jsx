@@ -11,7 +11,7 @@ const EmailLists = () => {
     }
     useEffect(() => {
         async function getList() {
-            const emailList = await axios.get("http://localhost:5000/api/user/get-email");
+            const emailList = await axios.get("https://bulk-email-sender-nodejs.onrender.com/api/user/get-email");
             setemailFinalList(emailList.data.emailList);
         }
         getList();

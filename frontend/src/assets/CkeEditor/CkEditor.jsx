@@ -19,7 +19,7 @@ const CkeEditor = () => {
       if (body && value) {
         setToast(null);
         const { data } = await axios.post(
-          "http://localhost:5000/api/user/send-email",
+          "https://bulk-email-sender-nodejs.onrender.com/api/user/send-email",
           { msg: body, time: value },
         );
         onChange(null);
