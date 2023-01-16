@@ -1,6 +1,6 @@
 .EmailLists{
     margin: 0 auto;
-    width: 70%;
+    width: 100%;
 }
 
 .SubEmailLists{
@@ -8,13 +8,14 @@
     background-color: aqua;
     margin-top: 2em;
     display: flex;
-    justify-content: space-evenly;
-    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em;
     border: 2px solid black;
 }
 
 .SubEmailLists div{
-    margin-right: 1em;
+    font-size: 50%;
 }
 .heading{
     margin-top: 20px;

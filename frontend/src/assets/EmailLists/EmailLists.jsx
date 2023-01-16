@@ -6,8 +6,10 @@ import "./EmailLists.css";
 const EmailLists = () => {
     const [emailFinalList, setemailFinalList] = useState([]);
     const modifyString = (str) => {
-        const FinalStr = str.replace(/(<([^>]+)>)/ig, '');
-        return FinalStr.replace("/&nbsp;/ig", "");
+        const NoHTMLStr = str.replace(/(<([^>]+)>)/ig, '');
+        const NoPACEStr = NoHTMLStr.replace("/&nbsp;/ig", "")
+        const FinalStr = NoPACEStr.slice(0, 30).concat("...");
+        return FinalStr;
     }
     useEffect(() => {
         async function getList() {
@@ -28,10 +30,10 @@ const EmailLists = () => {
             {
                 (emailFinalList.length > 0) && (emailFinalList.map((val, ind) => {
                     return (<div key={ind} className='SubEmailLists'>
-                        <div>{val.senderName}</div>
-                        <div>{val.recieverName}</div>
+                        <div>{val.senderName.replace("@gmail.com", "")}</div>
+                        <div>{val.recieverName.replace("@gmail.com", "")}</div>
                         <div>{modifyString(val.body)}</div>
-                        <div>{val.time}</div>
+                        <div>{val.time.slice(0, 10)}</div>
                     </div>)
                 }))
             }
