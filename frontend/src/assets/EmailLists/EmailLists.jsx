@@ -30,10 +30,10 @@ const EmailLists = () => {
             {
                 (emailFinalList.length > 0) && (emailFinalList.map((val, ind) => {
                     return (<div key={ind} className='SubEmailLists'>
-                        <div>{val.senderName.replace("@gmail.com", "")}</div>
-                        <div>{val.recieverName.replace("@gmail.com", "")}</div>
-                        <div>{modifyString(val.body)}</div>
-                        <div>{val.time.slice(0, 10)}</div>
+                        <div className='sender'>{val.senderName.replace("@gmail.com", "")}</div>
+                        <div className='reciver'>{val.recieverName.replace("@gmail.com", "")}</div>
+                        <div className='body'>{modifyString(val.body)}</div>
+                        <div className='time'>{val.time.slice(0, 10)}</div>
                     </div>)
                 }))
             }

@@ -15,12 +15,27 @@
 }
 
 .SubEmailLists div{
-    font-size: 50%;
+    font-size: 70%;
+    width: auto;
+}
+
+.SubEmailLists .sender{
+    background-color: chartreuse;
+}
+.SubEmailLists .reciver{
+    background-color: rgb(211, 154, 197);
+}
+.SubEmailLists .body{
+    background-color: rgb(199, 229, 29);
+}
+.SubEmailLists .time{
+    background-color: rgb(226, 193, 152);
 }
 .heading{
     margin-top: 20px;
     display: flex;
-    justify-content: space-around;
+
+    justify-content: space-between;
 }
 .heading div{
     text-align: center;
