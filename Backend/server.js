@@ -5,9 +5,11 @@ const path = require('path');
 const cors = require('cors');
 app.use(cors());
 
-require('dotenv').config({
-    path: 'Backend/.env'
-});
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config({
+        path: 'Backend/.env'
+    });
+}
 
 const { databaseConnect } = require('./config/database');
 databaseConnect();

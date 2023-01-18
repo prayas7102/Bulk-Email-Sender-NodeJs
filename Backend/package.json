@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prayas7102/Generic-API-based-Web-programming.git"
+    "url": "git+://github.com/prayas7102/Generic-API-based-Web-programming.git"
   },
   "author": "sonu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/prayas7102/Generic-API-based-Web-programming/issues"
+    "url": "://github.com/prayas7102/Generic-API-based-Web-programming/issues"
   },
-  "homepage": "https://github.com/prayas7102/Generic-API-based-Web-programming#readme",
+  "homepage": "://github.com/prayas7102/Generic-API-based-Web-programming#readme",
   "dependencies": {
     "@mui/x-date-pickers": "^5.0.13",
     "axios": "^1.2.2",
