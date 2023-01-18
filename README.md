@@ -3,7 +3,8 @@
 Generic notification system to send bulk text email. Technologies used: MERN, CKEditor for text area, calendar with react date-time picker and nodemailer & node-cron for sending/scheduling mail.
 
 # Deployed
-https://bulk-email-nodejs.netlify.app/
+Apparently the deployed version is not supporting the post requests to database but on localhost it's successfuly executing (see video)
+https://zesty-cendol-d7e43e.netlify.app/
 
 # Installation
 1. git clone https://github.com/prayas7102/Bulk-Email-Sender-NodeJs.git
